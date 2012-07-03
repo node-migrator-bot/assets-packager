@@ -179,7 +179,10 @@ var processGroup = function(type, group, callback) {
   if (type == 'stylesheets') {
     Seq().
       seq(function() {
-        exec('mkdir -p ' + groupDir, this);
+        if (!path.existsSync(groupDir))
+          fs.mkdir(groupDir, 0770, this);
+        else
+          this(null);
       }).
       seq(function() {
         var data = joinFiles(filesList);
@@ -224,7 +227,10 @@ var processGroup = function(type, group, callback) {
   } else {
     Seq().
       seq(function() {
-        exec('mkdir -p ' + groupDir, this);
+        if (!path.existsSync(groupDir))
+          fs.mkdir(groupDir, 0770, this);
+        else
+          this(null);
       }).
       seq(function() {
         var content = joinFiles(filesList);

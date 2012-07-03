@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "optimist": "0.3.x",
-    "seq": "0.2.x",
+    "seq": "0.3.x",
     "gzip": "0.1.x",
     "uglify-js": "1.x",
     "clean-css": "0.4.x",
